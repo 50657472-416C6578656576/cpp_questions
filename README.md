@@ -79,10 +79,47 @@ const Integer operator+(const Integer& left, const Integer& right) {
 - `protected` — доступ открыт только классам, производным от данного;
 - `private` — доступ открыт самому классу и друзьям (`friend`) данного класса: как функциям, так и классам. Однако даже производные классы не получают доступа к этим данным.
 
+```cpp
+class MyClass {
+  
+  public:    // Public access specifier
+    int x;   // Public attribute
+  
+  protected:   // Protected access specifier
+    int y;   // Protected attribute
+  
+  private:   // Private access specifier
+    int z;   // Private attribute
+    
+};
+
+
+class MyChild : public MyClass {
+   public:
+      void poke()
+      {
+         x = 10;     // Allowed (public)
+         y = 1010;   // Allowed (protected)
+         z = 101010; // Not allowed (private)
+      }
+};
+
+
+
+int main() {
+  MyClass myObj;
+  myObj.x = 25;  // Allowed (public)
+  myObj.y = 50;  // Not allowed (protected)
+  myObj.z = 75;  // Not allowed (private)
+  
+  return 0;
+}
+```
+
 Типы наследования:
 - публичный (`public`) - публичные (`public`) и защищенные (`protected`) данные наследуются без изменения уровня доступа к ним;
-- защищенный (`protected`) - все унаследованные данные становятся защищенными;
-- приватный (`private`) - все унаследованные данные становятся приватными.
+- защищенный (`protected`) - все унаследованные данные становятся защищенными (`protected`);
+- приватный (`private`) - все унаследованные данные становятся приватными (`private`).
 
 ---
 
