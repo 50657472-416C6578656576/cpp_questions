@@ -127,6 +127,44 @@ int main() {
 
 ### Что доступно в классе, порождённом от порождённого от базового (2 ступень наследования) при первичном наследовании public?
 
+Всё, кроме того, что имеет спецификатор доступа `private`. Пример:
+
+```cpp
+class MyClass {
+public:
+    int x;   // Public attribute
+protected:
+    int y;   // Protected attribute
+private:
+    int z;   // Private attribute
+};
+
+
+class MyChild : public MyClass {
+public:
+    int a;   // Public attribute
+protected:
+    int b;   // Protected attribute
+private:
+    int c;   // Private attribute
+};
+
+
+class MyGrandChild : public MyChild {
+public:
+    void poke()
+    {
+        x = 10;     // Allowed (public)
+        y = 1010;   // Allowed (protected)
+        z = 101010; // Not allowed (private)
+
+        a = 1;    // Allowed (public)
+        b = 11;   // Allowed (protected)
+        c = 111;  // Not allowed (private)
+    }
+};
+```
+
 ---
 
 ## Вопрос №53.
