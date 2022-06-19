@@ -1,4 +1,4 @@
-# cpp_questions
+# cpp_questions :sparkles:
 Ответы на вопросы по ООП № 37, 38* 50, 51, 52, 53 из [таблицы](https://docs.google.com/spreadsheets/d/1Xa1adOa6OHZmitgNn0bf2ZkWPHSHtjVP4N1kiDtX_wo/edit#gid=0)
 
 ---
